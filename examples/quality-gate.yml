@@ -1,0 +1,25 @@
+# Pull-request quality gate. Copy to .github/workflows/quality-gate.yml in the project you want to check.
+name: QualityLens quality gate
+
+on:
+  pull_request:
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0            # base and head commits are both needed
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt || true
+      - uses: rushipatil1318-boop/qualitylens@main
+        with:
+          fail-under: "60"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: qualitylens-report
+          path: qualitylens-report/

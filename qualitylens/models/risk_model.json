@@ -1,0 +1,53 @@
+{
+  "features": [
+    "failing_tests",
+    "untested_behaviour_change",
+    "uncovered_changed_lines",
+    "weak_tests",
+    "complexity_increase",
+    "dependency_impact",
+    "churn"
+  ],
+  "coef": [
+    1.42993,
+    3.42425,
+    0.15389,
+    0.88963,
+    -0.10962,
+    0.18068,
+    -0.30795
+  ],
+  "intercept": -1.90495,
+  "version": 1,
+  "trained_on": "93 labelled changes (gradekit, shopcalc)",
+  "trained": "2026-11-24",
+  "cross_project_auc": 0.956,
+  "evaluation": {
+    "cross_project": {
+      "train_shopcalc_test_gradekit": {
+        "learned_auc": 0.953,
+        "rule_auc": 0.944,
+        "learned_recall_at_0.5": 0.875,
+        "learned_false_alarms_at_0.5": 0
+      },
+      "train_gradekit_test_shopcalc": {
+        "learned_auc": 0.96,
+        "rule_auc": 0.981,
+        "learned_recall_at_0.5": 0.893,
+        "learned_false_alarms_at_0.5": 0
+      }
+    },
+    "cv": {
+      "folds": 50,
+      "learned_auc_mean": 0.958,
+      "learned_auc_sd": 0.052,
+      "rule_auc_mean": 0.967,
+      "rule_auc_sd": 0.042
+    },
+    "holdout": {
+      "bugs": 15,
+      "learned_flagged_at_0.5": 14,
+      "rule_flagged_below_70": 15
+    }
+  }
+}

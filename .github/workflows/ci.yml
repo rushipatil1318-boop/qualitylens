@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - run: pip install -e ".[benchmark]"
+      - run: python -m pytest -q
+
+  benchmark:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -e ".[benchmark]"
+      - run: python benchmark/run_benchmark.py --workers 2
+      - run: python benchmark/run_benchmark.py --workers 2 --holdout
+      - run: cd benchmark && python train_model.py
+      - run: |
+          python - <<'EOF' >> "$GITHUB_STEP_SUMMARY"
+          import json
+          s = json.load(open("benchmark/results/results.json"))["summary"]["all"]
+          print(f"### Benchmark\n\nROC-AUC {s['roc_auc']}, bugs flagged {s['bugs_flagged']}/{s['bugs']}, "
+                f"safe flagged {s['safe_flagged']}/{s['safe']}, coverage {s['coverage_before']:.0%} -> "
+                f"{s['coverage_after']:.0%}, mutation {s['mutation_before']:.0%} -> {s['mutation_after']:.0%}")
+          EOF
+      - uses: actions/upload-artifact@v4
+        with:
+          name: benchmark-results
+          path: benchmark/results/

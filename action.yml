@@ -1,0 +1,39 @@
+name: QualityLens
+description: "AI-assisted test generation and an explainable quality score for every pull request"
+branding:
+  icon: check-circle
+  color: blue
+inputs:
+  base:
+    description: "Base ref to compare against (default: the pull request base branch)"
+    default: ""
+  fail-under:
+    description: "Fail the check when the quality score is below this value (0 = never fail)"
+    default: "0"
+  mutants:
+    description: Mutants per changed file
+    default: "10"
+outputs:
+  score:
+    description: Quality score 0-100
+    value: ${{ steps.analyse.outputs.score }}
+runs:
+  using: composite
+  steps:
+    - name: Install QualityLens
+      shell: bash
+      run: pip install "${{ github.action_path }}"
+    - name: Analyse the change
+      id: analyse
+      shell: bash
+      run: |
+        BASE="${{ inputs.base }}"
+        if [ -z "$BASE" ]; then BASE="origin/${{ github.base_ref || 'main' }}"; fi
+        set +e
+        python -m qualitylens analyze --repo . --base "$BASE" --head HEAD --mutants "${{ inputs.mutants }}" \
+          --out qualitylens-report --fail-under "${{ inputs.fail-under }}"
+        status=$?
+        set -e
+        echo "score=$(python -c "import json;print(json.load(open('qualitylens-report/report.json'))['score']['quality_score'])")" >> "$GITHUB_OUTPUT"
+        cat qualitylens-report/report.md >> "$GITHUB_STEP_SUMMARY"
+        exit $status

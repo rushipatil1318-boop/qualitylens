@@ -1,0 +1,46 @@
+<!DOCTYPE html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>QualityLens report</title><style>
+:root{--navy:#14284b;--teal:#0e7c86;--grey:#5b6573;--line:#d5dce6;--bg:#f6f8fb;--red:#c2410c;--amber:#b7791f;
+--green:#2f855a}
+*{box-sizing:border-box}body{margin:0;font:14px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:#1e2430;
+background:var(--bg)}main{max-width:1040px;margin:0 auto;padding:28px 20px 48px}
+h1{font-size:22px;color:var(--navy);margin:0 0 2px}h2{font-size:15px;color:var(--navy);margin:28px 0 10px;
+padding-bottom:6px;border-bottom:1px solid var(--line)}.sub{color:var(--grey);margin:0 0 20px}
+.grid{display:grid;grid-template-columns:220px 1fr;gap:20px}.card{background:#fff;border:1px solid var(--line);
+border-radius:10px;padding:16px}.big{font-size:40px;font-weight:700;color:var(--navy);line-height:1}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.kpi .v{font-size:22px;font-weight:650;color:var(--navy)}
+.kpi .l{color:var(--grey);font-size:12px}.bar{height:8px;background:#e8edf3;border-radius:4px;overflow:hidden}
+.bar>span{display:block;height:100%}table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);
+border-radius:10px;overflow:hidden}th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);
+vertical-align:top}th{font-size:12px;color:var(--grey);font-weight:600;background:#fbfcfe}code{font:12.5px ui-monospace,
+SFMono-Regular,Menlo,monospace;background:#eef2f7;padding:1px 4px;border-radius:4px}ul{margin:6px 0 0;padding-left:18px}
+details{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin-bottom:8px}
+pre{white-space:pre-wrap;font:12px ui-monospace,Menlo,monospace;margin:10px 0 0}.pill{display:inline-block;padding:1px 8px;
+border-radius:999px;font-size:12px;font-weight:600;color:#fff}.muted{color:var(--grey)}
+@media(max-width:720px){.grid{grid-template-columns:1fr}.kpis{grid-template-columns:1fr 1fr}}
+</style></head><body><main><h1>QualityLens report</h1><p class='sub'>Change <code>main..feature</code> · 1 Python file · 2 changed lines · 3.2 s</p><div class='grid'><div class='card' style='text-align:center'><svg width="140" height="140" viewBox="0 0 140 140" role="img" aria-label="Quality score 57.8"><circle cx="70" cy="70" r="52" fill="none" stroke="#e8edf3" stroke-width="12"/><circle cx="70" cy="70" r="52" fill="none" stroke="var(--amber)" stroke-width="12" stroke-linecap="round" stroke-dasharray="188.8 326.7" transform="rotate(-90 70 70)"/><text x="70" y="76" text-anchor="middle" font-size="30" font-weight="700" fill="#14284b">58</text><text x="70" y="96" text-anchor="middle" font-size="11" fill="#5b6573">of 100</text></svg><div><span class='pill' style='background:var(--amber)'>Grade C</span></div><p class='muted' style='margin:12px 0 0'>Learned defect probability<br><b style='font-size:20px;color:var(--navy)'>92%</b></p></div><div><div class='kpis'><div class='card kpi'><div class='v'>100% → 100%</div><div class='l'>Changed-line coverage (existing → with generated tests)</div></div><div class='card kpi'><div class='v'>0% → 100%</div><div class='l'>Mutation score on changed lines (2 mutants)</div></div><div class='card kpi'><div class='v'>0</div><div class='l'>Existing tests now failing</div></div></div><div class='card' style='margin-top:12px'><b>Where the points went</b><div style='display:grid;grid-template-columns:1fr 160px 60px;gap:10px;align-items:center;margin-top:8px'><span>Existing tests fail</span><div class='bar'><span style='width:0%;background:var(--teal)'></span></div><span class='muted'>–</span></div><div style='display:grid;grid-template-columns:1fr 160px 60px;gap:10px;align-items:center;margin-top:8px'><span>Behaviour changed without a matching test update</span><div class='bar'><span style='width:100%;background:var(--red)'></span></div><span class='muted'>−25.0</span></div><div style='display:grid;grid-template-columns:1fr 160px 60px;gap:10px;align-items:center;margin-top:8px'><span>Changed lines not covered by tests</span><div class='bar'><span style='width:0%;background:var(--teal)'></span></div><span class='muted'>–</span></div><div style='display:grid;grid-template-columns:1fr 160px 60px;gap:10px;align-items:center;margin-top:8px'><span>Tests do not detect faults in the changed lines</span><div class='bar'><span style='width:100%;background:var(--red)'></span></div><span class='muted'>−15.0</span></div><div style='display:grid;grid-template-columns:1fr 160px 60px;gap:10px;align-items:center;margin-top:8px'><span>Complexity increased</span><div class='bar'><span style='width:0%;background:var(--teal)'></span></div><span class='muted'>–</span></div><div style='display:grid;grid-template-columns:1fr 160px 60px;gap:10px;align-items:center;margin-top:8px'><span>Other functions depend on the changed code</span><div class='bar'><span style='width:20%;background:var(--teal)'></span></div><span class='muted'>−1.0</span></div><div style='display:grid;grid-template-columns:1fr 160px 60px;gap:10px;align-items:center;margin-top:8px'><span>Change size</span><div class='bar'><span style='width:24%;background:var(--teal)'></span></div><span class='muted'>−1.2</span></div></div></div></div><h2>Changed functions</h2><table><tr><th>Function</th><th>Changed lines</th><th>Tests</th><th>Behaviour vs base</th><th>Complexity</th></tr><tr><td><code>shopcalc.pricing:bulk_discount_rate</code></td><td>1</td><td>2</td><td><b style='color:var(--red)'>changed on 1/13 inputs</b><ul><li><code>bulk_discount_rate(50,): 0.1 -&gt; 0.05</code></li></ul></td><td>4 (+0)</td></tr></table><h2>What to look at</h2><div class='card'><ul><li>No test fails if this changes: <code>shopcalc/pricing.py line 34: `&gt;` -&gt; `&gt;=`</code></li><li>No test fails if this changes: <code>shopcalc/pricing.py line 34: `50` -&gt; `51`</code></li></ul></div><h2>Generated tests</h2><details><summary><code>tests/generated_by_qualitylens/test_ql_shopcalc_pricing_bulk_discount_rate.py</code> · 12 cases for <code>shopcalc.pricing:bulk_discount_rate</code> (deterministic)</summary><pre>&quot;&quot;&quot;Tests generated by QualityLens for shopcalc.pricing:bulk_discount_rate.
+
+Expected values were recorded from the implementation at the analysed commit (characterization
+tests). Review them: if the current behaviour is wrong, these tests lock the bug in.&quot;&quot;&quot;
+import pytest
+
+from shopcalc.pricing import bulk_discount_rate
+
+
+@pytest.mark.parametrize(&quot;args, expected, approx&quot;, [
+    ((49,), 0.05, True),
+    ((99,), 0.1, True),
+    ((100,), 0.15, True),
+    ((9,), 0.0, True),
+    ((50,), 0.05, True),
+    ((10,), 0.05, True),
+    ((0,), 0.0, True),
+    ((101,), 0.15, True),
+    ((51,), 0.1, True),
+    ((11,), 0.05, True),
+    ((-1,), 0.0, True),
+    ((1,), 0.0, True),
+])
+def test_bulk_discount_rate_returns(args, expected, approx):
+    result = bulk_discount_rate(*args)
+    assert result == (pytest.approx(expected) if approx else expected)
+</pre></details><h2>Affected callers</h2><p><code>shopcalc.orders:order_total</code>, <code>shopcalc.pricing:line_total</code></p></main></body></html>

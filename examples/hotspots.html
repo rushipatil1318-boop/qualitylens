@@ -1,0 +1,20 @@
+<!DOCTYPE html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>QualityLens hotspots</title><style>
+:root{--navy:#14284b;--teal:#0e7c86;--grey:#5b6573;--line:#d5dce6;--bg:#f6f8fb;--red:#c2410c;--amber:#b7791f;
+--green:#2f855a}
+*{box-sizing:border-box}body{margin:0;font:14px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:#1e2430;
+background:var(--bg)}main{max-width:1040px;margin:0 auto;padding:28px 20px 48px}
+h1{font-size:22px;color:var(--navy);margin:0 0 2px}h2{font-size:15px;color:var(--navy);margin:28px 0 10px;
+padding-bottom:6px;border-bottom:1px solid var(--line)}.sub{color:var(--grey);margin:0 0 20px}
+.grid{display:grid;grid-template-columns:220px 1fr;gap:20px}.card{background:#fff;border:1px solid var(--line);
+border-radius:10px;padding:16px}.big{font-size:40px;font-weight:700;color:var(--navy);line-height:1}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.kpi .v{font-size:22px;font-weight:650;color:var(--navy)}
+.kpi .l{color:var(--grey);font-size:12px}.bar{height:8px;background:#e8edf3;border-radius:4px;overflow:hidden}
+.bar>span{display:block;height:100%}table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);
+border-radius:10px;overflow:hidden}th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);
+vertical-align:top}th{font-size:12px;color:var(--grey);font-weight:600;background:#fbfcfe}code{font:12.5px ui-monospace,
+SFMono-Regular,Menlo,monospace;background:#eef2f7;padding:1px 4px;border-radius:4px}ul{margin:6px 0 0;padding-left:18px}
+details{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin-bottom:8px}
+pre{white-space:pre-wrap;font:12px ui-monospace,Menlo,monospace;margin:10px 0 0}.pill{display:inline-block;padding:1px 8px;
+border-radius:999px;font-size:12px;font-weight:600;color:#fff}.muted{color:var(--grey)}
+@media(max-width:720px){.grid{grid-template-columns:1fr}.kpis{grid-template-columns:1fr 1fr}}
+</style></head><body><main><h1>QualityLens hotspots</h1><p class='sub'>5 source files. Hotspot = change frequency × complexity (0–100).</p><table><tr><th>File</th><th>Hotspot</th><th>Commits</th><th>Bug fixes</th><th>Complexity</th><th>Most complex function</th><th>Untested functions</th><th>Authors</th></tr><tr><td><code>shopcalc/pricing.py</code></td><td style='width:180px'><div class='bar'><span style='width:100%;background:var(--red)'></span></div><span class='muted'>100.0</span></td><td>7</td><td>3 (43%)</td><td>14</td><td>apply_discount (6)</td><td>0 of 4</td><td>3</td></tr><tr><td><code>shopcalc/shipping.py</code></td><td style='width:180px'><div class='bar'><span style='width:37%;background:var(--red)'></span></div><span class='muted'>36.7</span></td><td>4</td><td>2 (50%)</td><td>9</td><td>shipping_cost (7)</td><td>0 of 2</td><td>3</td></tr><tr><td><code>shopcalc/inventory.py</code></td><td style='width:180px'><div class='bar'><span style='width:18%;background:var(--red)'></span></div><span class='muted'>18.4</span></td><td>2</td><td>0 (0%)</td><td>9</td><td>reorder_needed (3)</td><td>1 of 3</td><td>2</td></tr><tr><td><code>shopcalc/utils.py</code></td><td style='width:180px'><div class='bar'><span style='width:10%;background:var(--red)'></span></div><span class='muted'>10.2</span></td><td>2</td><td>0 (0%)</td><td>5</td><td>clamp (2)</td><td>2 of 3</td><td>2</td></tr><tr><td><code>shopcalc/orders.py</code></td><td style='width:180px'><div class='bar'><span style='width:2%;background:var(--red)'></span></div><span class='muted'>2.0</span></td><td>2</td><td>0 (0%)</td><td>1</td><td>order_total (1)</td><td>0 of 1</td><td>1</td></tr></table></main></body></html>

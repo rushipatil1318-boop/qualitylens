@@ -1,0 +1,28 @@
+{
+  "cross_project": {
+    "train_shopcalc_test_gradekit": {
+      "learned_auc": 0.953,
+      "rule_auc": 0.944,
+      "learned_recall_at_0.5": 0.875,
+      "learned_false_alarms_at_0.5": 0
+    },
+    "train_gradekit_test_shopcalc": {
+      "learned_auc": 0.96,
+      "rule_auc": 0.981,
+      "learned_recall_at_0.5": 0.893,
+      "learned_false_alarms_at_0.5": 0
+    }
+  },
+  "cv": {
+    "folds": 50,
+    "learned_auc_mean": 0.958,
+    "learned_auc_sd": 0.052,
+    "rule_auc_mean": 0.967,
+    "rule_auc_sd": 0.042
+  },
+  "holdout": {
+    "bugs": 15,
+    "learned_flagged_at_0.5": 14,
+    "rule_flagged_below_70": 15
+  }
+}
